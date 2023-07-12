@@ -1,18 +1,57 @@
 //Циклы
+//задача, пользователь должен правильно вести пароль, неизвестно сколько раз, с помощью цикла
+const PASSWORD = '123';
+
+//вариант 1
+// let userInputPassword = prompt('Enter password');
+// while (PASSWORD !== userInputPassword) {
+// userInputPassword = prompt('Enter password');
+// }
+// alert('welcome');
+
+//вариант 2
+while(true){
+    const userInputPassword = prompt('Enter password');
+    if(PASSWORD === userInputPassword){
+        alert ('welcome');
+        break;
+    }
+}
+
+//задача, пользователь должен правильно вести пароль, 3 попытки, с помощью цикла 
+const PASSWORD1 = '123';
+const MAX_TRY = 3;
 
 let count = 0;
-//вариант1
-// while (++count < 3){
-// console.log('count', count);
-// }
 
-//вариант2
-// while(true){
-// count++;
-// console.log('count', count);
-// if(count >= 3) break; //выходим(break) с цикла когда count больше или равен 3
-// }
+while(true){
+    const userInputPassword = prompt('Enter password');
+    count++;
+    if(count>=MAX_TRY){
+        alert('try empty');
+        break;
+    }
+    if(PASSWORD === userInputPassword){
+        alert ('welcome');
+        break;
+    }
+    if(i +1 === MAX_TRY){
+        alert('try empty');
+        break;
+    }
+    alert('try number'+ (i + 1));
+}
 
-for (let i= 1; i<=3; i ++) {
-console.log('i', i);   
+//с помощью for
+for(let i = 0; i<MAX_TRY; i++){
+    alert('try number' + (i + 1)); //выводим пользователю сколько попыток осталось
+    const userInputPassword = prompt('Enter password');
+    if(PASSWORD === userInputPassword){
+        alert ('welcome');
+        break;
+    }
+    if(i + 1 === MAX_TRY){ //ввыводим пользователю что попытки закончились
+        alert('try empty');
+        break;
+    }
 }
